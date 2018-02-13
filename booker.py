@@ -1,11 +1,20 @@
 from __future__ import print_function
 import mechanize
+import pickle
 import sys
+import os
 
+if os.path.isfile('tastes'):
+    with open('tastes', 'rb') as file:
+        tastes = pickle.load(file)
+else:
+    tastes = dict()
 def resnames(l):
     tc, c, ret = len(l), 0, []
     for url in l:
-        ret += [browser.open(url).geturl()[25:]]
+        if not url in tastes.keys():
+            tastes[url] = browser.open(url).geturl()[25:]
+        ret += [tastes[url]]
         c +=1
         print('%s out of %s done'%(c, tc))
     return ret
@@ -35,5 +44,6 @@ html = html[:html.index(']')-1]
 x = html.split('","')
 x = [url+x[:-2] for x in x]
 print(resnames(x))
-
+with open('tastes', 'wb') as file:
+    pickle.dump(tastes, file)
 #print html.index(phrase)
