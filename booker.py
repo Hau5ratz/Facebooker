@@ -13,8 +13,8 @@ url = 'http://www.facebook.com/login.php'
 browser.open(url)
 browser.select_form(nr = 0)       #This is login-password form -> nr = number = 0
 print sys.argv
-browser.form['email'] = sys.argv[1] +' '+ sys.argv[2]
-browser.form['pass'] = sys.argv[3]
+browser.form['email'] = sys.argv[1]
+browser.form['pass'] = sys.argv[2]
 browser.submit()
 r = browser.open('http://facebook.com')
 html = r.read()
