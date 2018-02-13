@@ -1,4 +1,5 @@
 import mechanize
+import requests
 import sys
 
 phrase = 'InitialChatFriendsList'
@@ -26,7 +27,7 @@ html = html[html.index('list:'):]
 html = html[html.index('[')+2:]
 html = html[:html.index(']')-1]
 x = html.split('","')
-x = [browser.open(url+x[:-2]).geturl() for x in x]
+x = [requests.get(url+x[:-2]).history[0].url for x in x]
 print x
 
 #print html.index(phrase)
