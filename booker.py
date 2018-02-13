@@ -20,5 +20,5 @@ texty = 'https://www.facebook.com/'+ sys.argv[1].replace(' ','.').lower() + '?re
 print texty
 r = browser.open(texty)
 html = r.read()
-print html[html.index(phrase):100]
+print html[html.index(phrase):1000]
 #print html.index(phrase)
