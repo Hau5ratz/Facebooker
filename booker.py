@@ -26,7 +26,7 @@ html = html[html.index('[')+2:]
 html = html[:html.index(']')-1]
 x = html.split('","')
 x = [url+x[:-2] for x in x]
-res = requests.head(x[0], allow_redirects=True)
-print res.url
+res = requests.get(x[0], allow_redirects=True)
+print response.history
 
 #print html.index(phrase)
