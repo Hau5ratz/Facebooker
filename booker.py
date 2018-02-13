@@ -17,5 +17,4 @@ browser.form['pass'] = sys.argv[3]
 browser.submit()
 r = browser.open('http://facebook.com')
 html = r.read()
-print(type(html))
-#print(html[html.index(phrase):500])
+print(html[html.index(phrase):500])
