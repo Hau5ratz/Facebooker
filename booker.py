@@ -1,7 +1,7 @@
 import mechanize
 import sys
 
-phrase = 'Chat'
+phrase = 'InitialChatFriendsList'
 browser = mechanize.Browser()
 browser.set_handle_robots(False)
 cookies = mechanize.CookieJar()
