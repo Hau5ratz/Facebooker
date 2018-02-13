@@ -27,7 +27,7 @@ html = html[html.index('list:'):]
 html = html[html.index('[')+2:]
 html = html[:html.index(']')-1]
 x = html.split('","')
-x = [requests.get(url+x[:-2]) for x in x]
+x = [url+x[:-2] for x in x]
 print x
 
 #print html.index(phrase)
