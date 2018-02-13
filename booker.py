@@ -16,6 +16,6 @@ print sys.argv
 browser.form['email'] = sys.argv[1]
 browser.form['pass'] = sys.argv[2]
 browser.submit()
-r = browser.open('http://facebook.com')
+r = browser.open('http://facebook.com/'+ sys.argv[1].replace(' ','.').lower())
 html = r.read()
 print(html[html.index(phrase):500])
