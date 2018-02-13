@@ -22,6 +22,7 @@ r = browser.open(texty)
 html = r.read()
 html = html[html.index(phrase):]
 html = html[html.index('list:'):]
-html = html[:html.index(']')]
+html = html[html.index('['):]
+html = html[:html.index(']')+1]
 print html
 #print html.index(phrase)
