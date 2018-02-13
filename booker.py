@@ -24,5 +24,7 @@ html = html[html.index(phrase):]
 html = html[html.index('list:'):]
 html = html[html.index('['):]
 html = html[:html.index(']')+1]
-print html
+x = exec(html)
+print x
+print type(x)
 #print html.index(phrase)
