@@ -3,12 +3,11 @@ import mechanize
 import sys
 
 def resnames(l):
-    print('starting function')
     tc, c, ret = len(l), 0, []
     for url in l:
         ret += [browser.open(url).geturl()[25:]]
         c +=1
-        print('%s out of %s done'%(c, tc), end='\r')
+        print('%s out of %s done'%(c, tc))
     return ret
     
 phrase = 'InitialChatFriendsList'
