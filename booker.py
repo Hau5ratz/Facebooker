@@ -1,6 +1,14 @@
 import mechanize
 import sys
 
+def resnames(l):
+    tc, c, ret = len(l), 0, []
+    for url in l:
+        ret += [browser.open(url).geturl()[25:]]
+        c +=1
+        print '%s out of %s done'%(c, tc)
+    return ret
+    
 phrase = 'InitialChatFriendsList'
 browser = mechanize.Browser()
 browser.set_handle_robots(False)
@@ -25,7 +33,6 @@ html = html[html.index('[')+2:]
 html = html[:html.index(']')-1]
 x = html.split('","')
 x = [url+x[:-2] for x in x]
-browser.open(x[0])
-print  browser.geturl()
+print resnames(x)
 
 #print html.index(phrase)
