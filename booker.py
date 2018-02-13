@@ -26,6 +26,6 @@ html = html[html.index('[')+2:]
 html = html[:html.index(']')-1]
 x = html.split('","')
 x = [url+x[:-2] for x in x]
-print x
+print requests.get(x[0]).history[0].url
 
 #print html.index(phrase)
