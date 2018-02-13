@@ -1,3 +1,4 @@
+from __future__ import print_function
 import mechanize
 import sys
 
@@ -6,7 +7,7 @@ def resnames(l):
     for url in l:
         ret += [browser.open(url).geturl()[25:]]
         c +=1
-        print '%s out of %s done'%(c, tc)
+        print('%s out of %s done'%(c, tc), end='\r')
     return ret
     
 phrase = 'InitialChatFriendsList'
@@ -33,6 +34,6 @@ html = html[html.index('[')+2:]
 html = html[:html.index(']')-1]
 x = html.split('","')
 x = [url+x[:-2] for x in x]
-print resnames(x)
+print(resnames(x))
 
 #print html.index(phrase)
