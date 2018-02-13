@@ -1,5 +1,4 @@
 import mechanize
-import requests
 import sys
 
 phrase = 'InitialChatFriendsList'
@@ -26,7 +25,7 @@ html = html[html.index('[')+2:]
 html = html[:html.index(']')-1]
 x = html.split('","')
 x = [url+x[:-2] for x in x]
-res = requests.get(x[0], allow_redirects=True)
-print res.history
+browser.open(x[0])
+print  browser.geturl()
 
 #print html.index(phrase)
