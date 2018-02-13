@@ -1,6 +1,5 @@
 import mechanize
 import sys
-from bs4 import BeautifulSoup as bs
 
 phrase = "InitialChatFriendsList"
 browser = mechanize.Browser()
