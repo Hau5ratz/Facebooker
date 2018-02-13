@@ -18,6 +18,6 @@ browser.form['pass'] = sys.argv[2]
 browser.submit()
 texty = sys.argv[1].replace(' ','.').lower() + '?redif=8'
 print texty
-r = browser.open('http://facebook.com/'+ texty))
+r = browser.open('http://facebook.com/'+ texty)
 html = r.read()
 print(html[html.index(phrase):500])
