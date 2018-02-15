@@ -5,7 +5,7 @@ import sys
 import os
 
 if os.path.isfile('tastes'):
-    with open('tastes', 'rb') as file:
+    with open('./tastes', 'rb') as file:
         tastes = pickle.load(file)
 else:
     tastes = dict()
@@ -44,6 +44,6 @@ html = html[:html.index(']')-1]
 x = html.split('","')
 x = [url+x[:-2] for x in x]
 print(resnames(x))
-with open('tastes', 'wb') as file:
+with open('./tastes', 'wb') as file:
     pickle.dump(tastes, file)
 #print html.index(phrase)
