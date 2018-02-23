@@ -3,6 +3,7 @@ import mechanize
 import pickle
 import sys
 import os
+import getpass
 
 if os.path.isfile('tastes'):
     with open('./tastes', 'rb') as file:
@@ -31,8 +32,8 @@ burl = 'http://www.facebook.com/login.php'
 url = 'https://www.facebook.com/'
 browser.open(burl)
 browser.select_form(nr = 0)       #This is login-password form -> nr = number = 0
-browser.form['email'] = sys.argv[1]
-browser.form['pass'] = sys.argv[2]
+browser.form['email'] = input('Username: ')
+browser.form['pass'] = getpass.getpass()
 browser.submit()
 texty = url + sys.argv[1].replace(' ','.').lower() + '?redif=8'
 r = browser.open(texty)
