@@ -35,7 +35,7 @@ browser.select_form(nr = 0)       #This is login-password form -> nr = number = 
 browser.form['email'] = input('Username: ')
 browser.form['pass'] = getpass.getpass()
 browser.submit()
-texty = url + sys.argv[1].replace(' ','.').lower() + '?redif=8'
+texty = url + browser.form['email'].replace(' ','.').lower() + '?redif=8'
 r = browser.open(texty)
 html = r.read()
 html = html[html.index(phrase):]
