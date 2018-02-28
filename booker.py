@@ -32,10 +32,11 @@ burl = 'http://www.facebook.com/login.php'
 url = 'https://www.facebook.com/'
 browser.open(burl)
 browser.select_form(nr = 0)       #This is login-password form -> nr = number = 0
-browser.form['email'] = input('Username: ')
+Username = input('Username: ')
+browser.form['email'] = Username
 browser.form['pass'] = getpass.getpass()
 browser.submit()
-texty = url + browser.form['email'].replace(' ','.').lower() + '?redif=8'
+texty = url + Username.replace(' ','.').lower() + '?redif=8'
 r = browser.open(texty)
 html = r.read()
 html = html[html.index(phrase):]
